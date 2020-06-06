@@ -15,4 +15,5 @@ Please refer to the paper for further information. Get in touch with me if neces
 
 
 **References:**
-<a id="1">[2]</a> Fenton, Michael, James McDermott, David Fagan, Stefan Forstenlechner, Erik Hemberg, and Michael O'Neill. "Ponyge2: Grammatical evolution in python." In Proceedings of the Genetic and Evolutionary Computation Conference Companion, pp. 1194-1201. 2017.
+<a id="1">[1]</a> ...
+<a id="2">[2]</a> Fenton, Michael, James McDermott, David Fagan, Stefan Forstenlechner, Erik Hemberg, and Michael O'Neill. "Ponyge2: Grammatical evolution in python." In Proceedings of the Genetic and Evolutionary Computation Conference Companion, pp. 1194-1201. 2017.

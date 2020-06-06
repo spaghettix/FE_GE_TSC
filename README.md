@@ -5,6 +5,12 @@ Please use the file **feature_extraction.py** to run the algorithm, and so to ex
 
 The file **run_a_feature_extractor.py** shows you how to transform your time series in a feature-based representation according to a given feature-extractor. Then, the file shows you how to evaluate classification performance in a one-class scenario.
 
+Other important files:
+1. GRAMMAR: /grammars/tsc_grammar.bnf
+2. EVOLUTIONARY PARAMETERS: /parameters/tsc_parameters.txt
+3. FITNESS FUNCTION: /src/fitness/tsc_fitness.py
+4. FUNCTIONS USED IN THE GRAMMAR (PRIMITIVES): /src/fitness/math_functions.py
+
 Please refer to the paper for further information. Get in touch with me if necessary.
 
 

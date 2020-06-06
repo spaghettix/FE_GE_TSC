@@ -1,0 +1,32 @@
+<F> ::= extract(T, <lb>, <ub>, <bool>, function = lambda T:<fun>)
+
+<fun> ::= <primitive> | <primitive> | <op>
+
+<primitive> ::= Above0(T)|
+                AbsSum(T)|
+        	    ARCoeff(T)|
+                Autocorrelation(T)|
+                Below0(T)|
+        	    CID(T)|
+                FFT(T)|
+                Kurtosis(T)|
+                LinearTrend(T)|
+                Max(T)|
+                Mean(T)|
+                MeanAbsChanges(T)|
+                Median(T)|
+                Min(T)|
+                Skewness(T)|
+                STD(T)|
+                TRAS(T)
+
+<op> ::= (<fun>+<fun>)|
+         (<fun>-<fun>)|
+         (<fun>*<fun>)|
+         AQ(<fun>,<fun>)
+
+<lb> ::= GE_RANGE:1000
+
+<ub> ::= <lb> | None
+
+<bool> ::= True | False

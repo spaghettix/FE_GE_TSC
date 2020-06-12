@@ -14,7 +14,7 @@ Other important files:
 Please refer to the paper for further information. Get in touch with me if necessary.
 
 
-**Note:** This repository is basically a copy of [PonyGE2](https://github.com/PonyGE/PonyGE2) with some adjustments required to perform feature-extraction from time series as described in the related paper.
+**Note:** This repository is basically a copy of [PonyGE2](https://github.com/PonyGE/PonyGE2) [2] with some adjustments required to perform feature-extraction from time series as described in the related paper.
 
 
 **Contact:** mauceri.stefano@gmail.com

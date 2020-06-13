@@ -6,15 +6,15 @@ Run the file **feature_extraction.py** to extract features from your time series
 The file **run_a_feature_extractor.py** shows how to transform your time series in a feature-based representation according to a given feature-extractor. Then, the file shows how to evaluate classification performance in a one-class scenario.
 
 Other important files:
-1. GRAMMAR: /grammars/tsc_grammar.bnf
-2. EVOLUTIONARY PARAMETERS: /parameters/tsc_parameters.txt
-3. FITNESS FUNCTION: /src/fitness/tsc_fitness.py
-4. FUNCTIONS USED IN THE GRAMMAR (PRIMITIVES): /src/fitness/math_functions.py
+1. Gramamr -> /grammars/tsc_grammar.bnf
+2. Evolutionary parameters -> /parameters/tsc_parameters.txt
+3. Fitness function -> /src/fitness/tsc_fitness.py
+4. Functions used in the grammar (primitives) -> /src/fitness/math_functions.py
 
 Please refer to the paper for further information. Get in touch with me if necessary.
 
 
-**Note:** This repository is basically a copy of [PonyGE2](https://github.com/PonyGE/PonyGE2) [2] with some adjustments required to perform feature-extraction from time series as described in the related paper.
+**Note:** This repository is basically a copy of [PonyGE2](https://github.com/PonyGE/PonyGE2) [2] with some adjustments required to perform feature-extraction from time series as described in the related paper [1].
 
 
 **Contact:** mauceri.stefano@gmail.com

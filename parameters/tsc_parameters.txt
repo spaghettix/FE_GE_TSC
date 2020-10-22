@@ -5,8 +5,10 @@ CODON_SIZE:             1000
 CROSSOVER:              variable_twopoint
 CROSSOVER_PROBABILITY:  0.8
 INITIALISATION:         uniform_genome
+INIT_GENOME_LENGTH:	200
 INVALID_SELECTION:      False
 MUTATION:               int_flip_per_codon
+MUTATION_PROBABILITY:	0.01
 MUTATION_EVENTS:        1
 TOURNAMENT_SIZE:        5
 REPLACEMENT:            generational
@@ -21,6 +23,5 @@ MAX_TREE_DEPTH:         20
 MULTICORE:              False
 POPULATION_SIZE:        500
 MAX_GENOME_LENGTH:      500
-RANDOM_SEED:            1237717171
 GENERATIONS:            40
 RUNS:                   30

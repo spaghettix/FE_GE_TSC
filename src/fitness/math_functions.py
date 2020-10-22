@@ -51,7 +51,7 @@ def AbsSum(X):
 
 
 def ARCoeff(X):
-    return np.apply_along_axis(lambda x:AutoReg(x, lags=1, seasonal=False, trend='n').fit().params, 1, X)
+    return np.apply_along_axis(lambda x:AutoReg(x, lags=1, seasonal=False, trend='n', old_names=False).fit().params, 1, X)
 
 
 

@@ -1,11 +1,10 @@
-from sys import path
-path.append("../src")
+
+import sys, os
+sys.path.insert(0, os.path.abspath('..'))
 
 from utilities.algorithm.general import check_python_version
 
 check_python_version()
-
-import sys
 
 from algorithm.parameters import params, set_params
 from operators.subtree_parse import get_NT_from_str, get_num_from_str, \

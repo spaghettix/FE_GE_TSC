@@ -1,7 +1,7 @@
 ## Feature Extraction by Grammatical Evolution for One-Class Time Series Classification
 
 
-Run **feature_extraction.py** to extract features from your time series.
+Run **feature_extraction.py** to extract features from your time series data-set.
 
 The file **run_a_feature_extractor.py** shows how to transform your time series in a feature-based representation according to a given feature-extractor. Then, the file shows how to evaluate classification performance in a one-class scenario.
 

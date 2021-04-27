@@ -22,6 +22,6 @@ Please refer to the paper for further information. Get in touch with me if neces
 
 **References:**
 
-<a id="1">[1]</a> ...
+<a id="1">[1]</a> [Mauceri, Stefano, James Sweeney, Miguel Nicolau, and James McDermott. "Feature extraction by grammatical evolution for one-class time series classification." Genetic Programming and Evolvable Machines (2021): 1-29](https://link.springer.com/content/pdf/10.1007/s10710-021-09403-x.pdf).
 
 <a id="2">[2]</a> Fenton, Michael, James McDermott, David Fagan, Stefan Forstenlechner, Erik Hemberg, and Michael O'Neill. "Ponyge2: Grammatical evolution in python." In Proceedings of the Genetic and Evolutionary Computation Conference Companion, pp. 1194-1201. 2017.

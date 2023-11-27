@@ -33,10 +33,11 @@ warnings.simplefilter("ignore")
 
 class KNN(NearestNeighbors):
 
-
+    k = 1
+    metric_params = {}
 
     def __init__(self, k=1, metric_params={}):
-        super(KNN, self).__init__(n_neighbors=k, metric_params=metric_params)
+        super().__init__(n_neighbors=k, metric_params=metric_params)
 
 
 

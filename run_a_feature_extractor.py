@@ -39,10 +39,11 @@ from sklearn.preprocessing import StandardScaler
 
 class KNN(NearestNeighbors):
 
-
+    k = 1
+    metric_params = {}
 
     def __init__(self, k=1, metric_params={}):
-        super(KNN, self).__init__(n_neighbors=k, metric_params=metric_params)
+        super().__init__(n_neighbors=k, metric_params=metric_params)
 
 
 
@@ -87,7 +88,7 @@ dataset = 'SyntheticControl'
 
 class_ = 1
 
-feature_extractor = 'extract(T, 58, 3, True, function = lambda T:ARCoeff(T))'
+feature_extractor = 'extract(T, 58, None, True, function = lambda T:ARCoeff(T))'
 
 
 # LOAD DATA.

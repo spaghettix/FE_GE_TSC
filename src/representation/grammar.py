@@ -498,7 +498,7 @@ class Grammar(object):
                         # Iterate over all symbols in a production choice.
                         symbol_arity_pos = 0
 
-                        if j["type"] is "NT":
+                        if j["type"] == "NT":
                             # We are only interested in non-terminal symbols
                             for child in self.rules[j["symbol"]]['choices']:
                                 # Iterate over all production choices for

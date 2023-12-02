@@ -69,6 +69,10 @@ def extract_features(X, phenotype):
     return eval(phenotype)
 
 
+def exists_or_create(path):
+    if not os.path.exists(path):
+        os.makedirs(path)
+
 
 def customise_default_grammar(dataset, cwd):
     path_default = os.path.join(cwd, 'grammars', 'tsc_grammar.bnf')
@@ -101,36 +105,24 @@ def save_last_feature(parameters):
     generations = parameters['GENERATIONS']
     fts = parameters['FEATURE_NUMBER']
     class_ = parameters['CLASS']
-    dataset_name = parameters['DATASET_NAME']
-    data_dir = os.path.abspath(os.path.join(os.getcwd(), 'data'))
 
     current_save_dir = os.path.abspath(os.path.join(os.getcwd(), 'results', parameters['EXPERIMENT_NAME']))
     current_save_dir = current_save_dir.split(os.path.sep)[:-2]
     current_save_dir = os.path.sep.join(current_save_dir)
-
-    path = os.path.join(data_dir, dataset_name)
-    X = np.load(os.path.join(path, f'{dataset_name}_X_TRAIN.npy'))
-    Y = np.load(os.path.join(path, f'{dataset_name}_Y_TRAIN.npy'))
-    X_class_c = X[(Y == class_)]
 
     phen_path = os.path.join(current_save_dir,
                              f'F_{fts}',
                              f'CLASS={class_}_RUN={run}',
                              f'{generations}.txt')
 
-    fts_path = os.path.join(current_save_dir,
-                            'FEATURES',
-                            f'CLASS={class_}_RUN={run}_F_{fts}.npy')
+    with open(phen_path, 'r') as phenotype_file:
+        for line in phenotype_file:
+            if line.startswith('Phenotype:'):
+                phenotype = next(phenotype_file).strip()
 
-    phenotype_file = open(phen_path, 'r')
-    for line in phenotype_file:
-        if line.startswith('Phenotype:'):
-            phenotype = next(phenotype_file).strip()
-            x = extract_features(X_class_c, phenotype)
-            np.save(fts_path, x)
-    phenotype_file.close()
-
-    save_phen_path = os.path.join(current_save_dir, 'PHENOTYPES', f'CLASS={class_}_RUN={run}.txt')
+    save_phen_folder = os.path.join(current_save_dir, 'PHENOTYPES')
+    exists_or_create(save_phen_folder)
+    save_phen_path = os.path.join(save_phen_folder, f'CLASS={class_}_RUN={run}.txt')
     save_phen_file = open(save_phen_path, 'a')
     save_phen_file.write(phenotype + '\n')
     save_phen_file.close()
@@ -178,7 +170,6 @@ def wrapper(dataset, class_, feature_number, cwd, parameters_file='tsc_parameter
             save_last_feature(parameters_default)
 
 
-
 # =============================================================================
 # MAIN
 # =============================================================================
@@ -188,7 +179,9 @@ def wrapper(dataset, class_, feature_number, cwd, parameters_file='tsc_parameter
 dataset_list = ['SyntheticControl', 'GunPoint']
 
 # Number of features to be extracted.
-features = 3
+features = 1
+
+classes = None
 
 
 for dataset in dataset_list:
@@ -209,8 +202,15 @@ for dataset in dataset_list:
     # the available class labels.
     # I read this argument from data.
     Y = np.load(path_to_dataset + f'{dataset}_Y_TRAIN.npy')
-    classes = np.unique(Y)
 
+    if classes is None:
+        classes, counts = np.unique(Y, return_counts=True)
+        cls_counts = {i:j for i, j, in zip(classes, counts)}
+    else:
+        _classes, counts = np.unique(Y, return_counts=True)
+        cls_counts = {i:j for i, j, in zip(_classes, counts) if i in classes}
+    print(f'Dataset name: {dataset}')
+    print(f'Classes: {cls_counts}')
 
     # We need to modify the default grammar
     # to account for the current time series length.
@@ -222,6 +222,7 @@ for dataset in dataset_list:
     # we call the algorithm.
     for f in range(1, features+1):
         for c in classes:
+            print(f'Generating feature {f} for class {c}.')
             if f == features:
                 save_last = True
             else:
